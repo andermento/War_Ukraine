@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 
 st.set_page_config(page_title="Guerra na Ucrânia", layout="wide")
 
@@ -27,13 +26,14 @@ with st.container():
 with st.container():
     st.write(" ")
 
-col1, col2, col3 = st.columns(3)
+    st.bar_chart(df1, x="Países", y="Ajuda Financeira")
 
-fig_refug = px.pie(df2, values="Number of Refugees", names="Country", title="Países que mais receberam refugiados")
-col1.plotly_chart(fig_refug)
+with st.container():
+    st.write(" ")
 
-fig_fin = px.bar(df1, x="Países", y="Ajuda Financeira", title="Ajuda financeira à Ucrânia (por país)")
-col2.plotly_chart(fig_fin)
+    st.bar_chart(df1, x="Países", y="Ajuda Humanitária")
 
-fig_hum = px.bar(df1, x="Países", y="Ajuda Humanitária", title="Ajuda humanitária à Ucrânia (por país)", orientation="h")
-col3.plotly_chart(fig_hum)
+with st.container():
+    st.write(" ")
+
+    st.bar_chart(df2, x="Country", y="Number of Refugees")
