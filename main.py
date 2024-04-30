@@ -2,8 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-st.set_page_config(page_title="Guerra na Ucrânia")
-st.set_page_config(layout="wide")
+st.set_page_config(page_title="Guerra na Ucrânia", layout="wide")
 
 df1 = pd.read_excel("War_UK_RU.xlsx")
 df2 = pd.read_excel("War_UK_RU.xlsx", sheet_name="Refugiados por país")
@@ -24,6 +23,9 @@ with st.container():
 
 with st.container():
     st.image('forca_militar.png', caption='Força Militar russa e ucraniana')
+
+with st.container():
+    st.write(" ")
 
 col1, col2, col3 = st.columns(3)
 
